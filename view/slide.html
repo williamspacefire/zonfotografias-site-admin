@@ -1,0 +1,19 @@
+<md-toolbar style="background: rgba(0,0,0,0);color:#555" class="md-hue-2" ng-if="$root.toolbar">
+    <div class="md-toolbar-tools">
+        <h2 flex>Slide</h2>
+        <md-button ng-click="addSlide()" class="md-primary md-fab">
+            <md-icon md-svg-src="images/plus.svg"></md-icon>
+        </md-button>
+    </div>
+</md-toolbar>
+<md-list>
+    <md-list-item ng-repeat="slide in $root.database.slide">
+        <md-input-container class="full">
+            <label>Imagem</label>
+            <input type="text" placeholder="Cole aqui o link direto para a imagem" ng-model="$root.database.slide[$index]">
+        </md-input-container>
+        <md-button ng-click="deleteslide($index)" class="md-icon-button">
+            <md-icon md-svg-src="images/delete.svg"></md-icon>
+        </md-button>
+    </md-list-item>
+</md-list>

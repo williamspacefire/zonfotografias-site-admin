@@ -1,0 +1,19 @@
+<div class="contacts">
+    <h2>Contatos</h2>
+    <md-card ng-repeat="(key, contact) in $root.database.contact">
+        <md-card-title>
+            <md-card-title-text>
+                <span class="md-headline">{{contact.name}}</span>
+                <span class="md-subhead"><strong>Email:</strong> {{contact.email}}</span>
+                <span class="md-subhead"><strong>Telefone:</strong> {{contact.number}}</span>
+                <span class="md-subhead"><strong>Lugar:</strong> {{contact.place}}</span>
+            </md-card-title-text>
+        </md-card-title>
+        <md-card-actions layout="row" layout-align="end center">
+            <md-button ng-click="showMessage(contact.message, contact.name)">Mensagem</md-button>
+            <md-button ng-click="deletecontact(key)">Apagar</md-button>
+        </md-card-actions>
+    </md-card>
+
+    <md-subheader ng-if="$root.database.contact === true">Nenhum contato encontrado</md-subheader>
+</div>

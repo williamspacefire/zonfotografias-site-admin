@@ -1,0 +1,76 @@
+<html lang="pt-br">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="utf-8">
+    <base href="/zona/">
+    <link rel="stylesheet" href="css/angular-material.min.css">
+    <link rel="stylesheet" href="css/app.css">
+    <title>Zon Fotografias Admin</title>
+</head>
+<body ng-app="BlankApp" ng-cloak ng-controller="ctrl">
+<md-progress-linear ng-if="$root.loading || $root.isLogged() && !($root.database.contact && $root.database.bio && $root.database.menus && $root.database.portfolio && $root.database.slide)" style="z-index: 99;position:fixed" ng-mode="query"></md-progress-linear>
+<md-toolbar style="background: white;color:#555" class="md-hue-2" ng-if="$root.toolbar">
+    <div class="md-toolbar-tools">
+        <md-button class="md-icon-button" aria-label="Settings" ng-disabled="true">
+            <md-icon md-svg-icon="img/icons/menu.svg"></md-icon>
+        </md-button>
+
+        <h2 flex md-truncate>Zon Fotografias</h2>
+
+        <md-button href="https://zonfotografias.tk" target="_blank">
+            Visitar site
+        </md-button>
+        <md-button ng-click="logout()">
+            Sair
+        </md-button>
+    </div>
+</md-toolbar>
+<md-toolbar style="background: grey;color:#fff" class="md-hue-2" ng-if="$root.toolbar">
+    <div class="md-toolbar-tools">
+        <md-button href="contact">
+            Contato
+        </md-button>
+        <md-button href="bio">
+            Sobre
+        </md-button>
+        <md-button href="menus">
+            Menus
+        </md-button>
+        <md-button href="portfolio">
+            Portfolio
+        </md-button>
+        <md-button href="slide">
+            Slide
+        </md-button>
+        <span flex></span>
+        <md-button ng-click="save()" class="md-warn md-raised">
+            Salvar
+        </md-button>
+    </div>
+</md-toolbar>
+
+<div ng-view></div>
+
+<!-- JS -->
+<script src="js/firebase.js"></script>
+<script>
+    // Initialize Firebase
+    var config = {
+        apiKey: "AIzaSyDp2Kf0N4dE4xKQtTi5KQS-rF9lPaRoibg",
+        authDomain: "zon-fotografias.firebaseapp.com",
+        databaseURL: "https://zon-fotografias.firebaseio.com",
+        projectId: "zon-fotografias",
+        storageBucket: "zon-fotografias.appspot.com",
+        messagingSenderId: "469026464399"
+    };
+    firebase.initializeApp(config);
+</script>
+<script src="js/angular.min.js"></script>
+<script src="js/angular-route.js"></script>
+<script src="js/angular-animate.min.js"></script>
+<script src="js/angular-aria.min.js"></script>
+<script src="js/angular-messages.min.js"></script>
+<script src="js/angular-material.min.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>

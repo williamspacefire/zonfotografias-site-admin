@@ -1,0 +1,64 @@
+<h2>Menus</h2>
+<md-card>
+    <md-toolbar style="background: white;color:#555" class="md-hue-2" ng-if="$root.toolbar">
+        <div class="md-toolbar-tools">
+            <strong flex>Menu</strong>
+            <md-button ng-click="add()" class="md-primary md-fab">
+                <md-icon md-svg-src="images/plus.svg"></md-icon>
+            </md-button>
+        </div>
+    </md-toolbar>
+    <md-content>
+        <md-list>
+            <md-list-item ng-repeat="menu in $root.database.menus.menu">
+                <md-input-container class="full">
+                    <label>Nome</label>
+                    <input type="text" ng-model="menu.name">
+                </md-input-container>
+                <md-input-container class="full">
+                    <label>Link</label>
+                    <input type="text" ng-model="menu.link">
+                </md-input-container>
+                <md-button ng-click="deletemenu($index)" class="md-icon-button">
+                    <md-icon md-svg-src="images/delete.svg"></md-icon>
+                </md-button>
+            </md-list-item>
+        </md-list>
+    </md-content>
+</md-card>
+
+<md-card>
+    <md-toolbar style="background: white;color:#555" class="md-hue-2" ng-if="$root.toolbar">
+        <div class="md-toolbar-tools">
+            <strong flex>Social</strong>
+            <md-button ng-click="addSocial()" class="md-primary md-fab">
+                <md-icon md-svg-src="images/plus.svg"></md-icon>
+            </md-button>
+        </div>
+    </md-toolbar>
+    <md-content>
+        <md-list>
+            <md-list-item ng-repeat="menu in $root.database.menus.social">
+                <md-input-container class="full">
+                    <label>Username</label>
+                    <input type="text" ng-model="menu.usarname">
+                </md-input-container>
+                <md-input-container class="full">
+                    <label>Link</label>
+                    <input type="text" ng-model="menu.link">
+                </md-input-container>
+                <md-input-container class="full">
+                    <label>Icon</label>
+                    <input type="text" ng-model="menu.icon">
+                </md-input-container>
+                <md-input-container class="full">
+                    <label>Hide</label>
+                    <input type="text" ng-model="menu.hide">
+                </md-input-container>
+                <md-button ng-click="deletesocial($index)" class="md-icon-button">
+                    <md-icon md-svg-src="images/delete.svg"></md-icon>
+                </md-button>
+            </md-list-item>
+        </md-list>
+    </md-content>
+</md-card>

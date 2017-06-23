@@ -1,0 +1,71 @@
+body{
+    font-family: 'Roboto',sans-serif;
+}
+.VYMape{
+    background:#fff;
+    bottom:0;
+    direction:ltr;
+    left:0;
+    overflow:hidden;
+    position:absolute;
+    right:0;
+    top:0;
+    z-index:1;
+}
+.loginPage{
+    z-index: 2;
+    position: relative;
+    background: transparent;
+}
+.loginBox{
+    padding: 48px;
+    width: 450px;
+    height: 500px;
+    margin: 35px auto;
+}
+.loginBox p{
+    font-size: 1.5em;
+    margin: 0;
+}
+.loginBox img{
+    width:200px;
+    margin: 0 auto;
+    margin-bottom: 15px;
+}
+.powered{
+    width: 200px;
+    margin: 0 auto;
+}
+.resetpassword{
+    font-size: 12px;
+    position: relative;
+    top:-25px;
+    text-decoration: none;
+}
+.powered a{
+    text-decoration: none;
+    font-weight:bold;
+    color: #06f;
+}
+.contacts{
+    width: 100%;
+}
+.contacts md-card{
+    width: 250px;
+    display: inline-block;
+    position: relative;
+    height:250px;
+}
+div[ng-view]{
+    padding:16px;
+}
+.full{
+    width: 99.5%;
+}
+img.about-view{
+    width: 100px;
+    height: 100px;
+}
+.md-icon-button md-icon{
+    color: #a6a6a6;
+}

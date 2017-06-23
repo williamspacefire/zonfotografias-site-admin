@@ -1,0 +1,55 @@
+<h2>Portfolio</h2>
+
+<md-card>
+    <md-toolbar style="background: white;color:#555" class="md-hue-2" ng-if="$root.toolbar">
+        <div class="md-toolbar-tools">
+            <strong flex>Categorias</strong>
+            <md-button ng-click="addCat()" class="md-primary md-fab">
+                <md-icon md-svg-src="images/plus.svg"></md-icon>
+            </md-button>
+        </div>
+    </md-toolbar>
+    <md-content>
+        <md-list>
+            <md-list-item ng-repeat="category in $root.database.portfolio.categories">
+                <md-input-container class="full">
+                    <label>Nome</label>
+                    <input type="text" ng-model="category.name">
+                </md-input-container>
+                <md-input-container class="full">
+                    <label>Pagina</label>
+                    <input type="text" ng-model="category.page" ng-disabled="$root.database.portfolio.category[category.page]">
+                </md-input-container>
+                <md-input-container class="full">
+                    <label>Thumb</label>
+                    <input type="text" ng-model="category.thumb">
+                </md-input-container>
+                <md-button ng-click="deleteCategory($index)" class="md-icon-button">
+                    <md-icon md-svg-src="images/delete.svg"></md-icon>
+                </md-button>
+            </md-list-item>
+        </md-list>
+    </md-content>
+</md-card>
+
+<md-card ng-repeat="photos in $root.database.portfolio.categories" ng-if="photos.page && photos.name && photos.thumb">
+    <md-toolbar style="background: grey;color:#ffffff" class="md-hue-2">
+        <div class="md-toolbar-tools">
+            <span flex>{{photos.name.toUpperCase()}}</span>
+            <md-button ng-click="addP(photos)" class="md-icon-button">
+                <md-icon md-svg-src="images/plus.svg"></md-icon>
+            </md-button>
+        </div>
+    </md-toolbar>
+    <md-list>
+        <md-list-item ng-repeat="photo in $root.database.portfolio.category[photos.page]">
+            <md-input-container class="full">
+                <label>Link</label>
+                <input type="text" placeholder="Cole aqui o link direto para a imagem" ng-model="$root.database.portfolio.category[photos.page][$index]">
+            </md-input-container>
+            <md-button class="md-icon-button" ng-click="deletelink($index, photos.page)">
+                <md-icon md-svg-src="images/delete.svg"></md-icon>
+            </md-button>
+        </md-list-item>
+    </md-list>
+</md-card>
