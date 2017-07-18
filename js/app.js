@@ -27,6 +27,9 @@ app.config(function ($routeProvider, $locationProvider) {
     }).when("/slide", {
        templateUrl:"view/slide.html",
         controller:"slide"
+    }).when("/reviews", {
+       templateUrl:"view/review.html",
+        controller:"reviews"
     }).otherwise({
         redirectTo:"/"
     })
@@ -54,6 +57,7 @@ app.controller("ctrl", function ($scope, $http, $rootScope, $location, $mdDialog
     $rootScope.database.menus = null;
     $rootScope.database.portfolio = null;
     $rootScope.database.slide = null;
+    $rootScope.database.reviews = null;
 
     function get() {
         if($rootScope.isLogged() && token){
@@ -71,6 +75,9 @@ app.controller("ctrl", function ($scope, $http, $rootScope, $location, $mdDialog
             });
             $http.get(config.databaseURL+"/slide.json?auth="+token).then(function (data) {
                 $rootScope.database.slide = data.data;
+            });
+            $http.get(config.databaseURL+"/reviews.json?auth="+token).then(function (data) {
+                $rootScope.database.reviews = data.data;
             });
         }else{
             token = sessionStorage.getItem("token");
@@ -110,6 +117,9 @@ app.controller("ctrl", function ($scope, $http, $rootScope, $location, $mdDialog
                 break;
             case "/slide":
                 data = $rootScope.database.slide;
+                break;
+            case "/reviews":
+                data = $rootScope.database.reviews;
                 break;
         }
 
@@ -250,6 +260,12 @@ app.controller("contact", function ($scope, $rootScope, $mdDialog) {
 
 //bio controller
 app.controller("bio", function ($scope, $rootScope, $mdDialog) {
+    $rootScope.isLogged(true);
+    $rootScope.toolbar = true;
+});
+
+//review controller
+app.controller("reviews", function ($scope, $rootScope, $mdDialog) {
     $rootScope.isLogged(true);
     $rootScope.toolbar = true;
 });
